@@ -1,0 +1,16 @@
+#RUN cinterop -def libusbtocan.def -compiler-option -Iusbtocan\include -o usbtocan from C:\Users\Francesco\IdeaProjects\http-client\src\nativeInterop\cinterop
+# cinterop executable is in  C:\Users\Francesco\.konan\kotlin-native-prebuilt-windows-x86_64-1.6.10\bin\cinterop
+# so the full command is:
+# C:\Users\Francesco\.konan\kotlin-native-prebuilt-windows-x86_64-1.6.10\bin\cinterop -def libusbtocan.def -compiler-option -Iusbtocan\include -o libusbtocan
+
+package = libusbtocan
+headers = usbtocan.h
+headerFilter = *
+linkerOpts.mingw_x64 =  -LC:/Tools/msys64/mingw64/lib -l:libusbtocan.lib
+compilerOpts.mingw_x64 = -IC:/Tools/msys64/mingw64/include/usbtocan
+#linkerOpts.osx = -L/opt/local/lib -L/usr/local/opt/curl/lib -lcurl -L/opt/homebrew/opt/curl/include/curl
+#compilerOpts.osx = -I/opt/local/include/curl -I/usr/bin/curl -I/usr/local/include/curl -I/usr/include/curl -I/usr/local/Cellar/curl/7.80.0_1/include/curl -I/usr/local/Cellar/curl/7.80.0/include/curl -I/usr/local/Cellar/curl/7.62.0/include/curl -I/usr/local/Cellar/curl/7.63.0/include/curl -I/usr/local/Cellar/curl/7.65.3/include/curl -I/usr/local/Cellar/curl/7.66.0/include/curl -I/opt/homebrew/opt/curl/include/curl
+#linkerOpts.linux = -L/usr/lib64 -L/usr/lib/x86_64-linux-gnu -lcurl -L/opt/homebrew/opt/curl/include/curl
+#compilerOpts.linux = -I/usr/include/curl -I/usr/include/x86_64-linux-gnu/curl -I/opt/homebrew/opt/curl/include/curl
+#-LC:/Tools/msys2/mingw64/lib -lcurl -L/opt/homebrew/opt/curl/include/curl
+# compilerOpts.mingw_x64 = -I/usr/include/curl -I/usr/include/x86_64-linux-gnu/curl -I/opt/homebrew/opt/curl/include/curl
